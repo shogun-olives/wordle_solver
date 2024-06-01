@@ -110,7 +110,7 @@ def prompt_user(
     
     error = None
     
-    while wordle_solver.get_num_remaining() > 1:
+    while True:
         clear_console()
         print(wordle_solver)
 
@@ -130,13 +130,13 @@ def prompt_user(
             error = None
         elif user_in == '2':
             clear_console()
-            print('[Remaining words:')
+            print('[=] Remaining words:')
             for i, word in enumerate(wordle_solver.get_remaining()):
                 idx = f'[{i + 1}]'
                 print(f'  {idx:>6} {word}')
-            input(f'[=] Press any key to continue...')
+            input(f'\n[=] Press any key to continue...')
             error = None
-        elif user_in in ['3', 'exit']:
+        elif user_in in ['3', 'e', 'exit']:
             error = None
             break
         else:
